@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets 
-from  rest_framework.authentication import TokenAuthentication
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.filters import SearchFilter
 from .serializers import UserProfileSerializer
 from . import models
 from . import permissions
@@ -14,5 +15,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
   serializer_class=UserProfileSerializer
   authentication_classes=(TokenAuthentication,)
   permission_classes=(permissions.IsOwnIdOrReadOnly,)
+  filter_backends=(SearchFilter,)
+  search_fields=('name' , 'email',)
   
 
