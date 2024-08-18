@@ -53,4 +53,4 @@ class UserProfileFeed(models.Model):
 
   def __str__(self):
 
-    return self.user_profile
+    return self.status
