@@ -10,6 +10,7 @@ from rest_framework.authtoken.models import Token
 from . import serializers
 from . import models
 from . import permissions
+from .import  pagination
 
 
 # Create your views here.
@@ -32,6 +33,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
   serializer_class=serializers.UserProfileSerializer
   authentication_classes=(TokenAuthentication,)
   permission_classes=(permissions.IsOwnIdOrReadOnly,)
+  pagination_class=pagination.DefaultPagination
   filter_backends=(SearchFilter,)
   search_fields=('name' , 'email',)
 
@@ -42,6 +44,7 @@ class UserProfileFeedViewSet(viewsets.ModelViewSet):
   serializer_class=serializers.UserProfileFeedSerializer
   authentication_classes=(TokenAuthentication,)
   permission_classes=(permissions.PostOwnStatus , IsAuthenticatedOrReadOnly)
+  pagination_class=pagination.DefaultPagination
   
 
   def perform_create(self, serializer):
