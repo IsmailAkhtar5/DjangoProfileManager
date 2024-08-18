@@ -78,10 +78,14 @@ WSGI_APPLICATION = 'profileproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'db_for_profileproject',
+        'HOST':'localhost',
+        'USER':'root',
+        'PASSWORD':'ismail@2802',
     }
 }
+
 
 
 # Password validation
@@ -126,3 +130,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL='profiles_api.UserProfile'
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}

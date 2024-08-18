@@ -16,6 +16,7 @@ class UserProfileManager(BaseUserManager):
     user.save(using=self._db)
     return user
   
+  
   def create_superuser(self , email, name , password):
 
     user=self.create_user(email , name, password)
@@ -42,3 +43,14 @@ class UserProfile(AbstractBaseUser , PermissionsMixin):
   
   def __str__(self):
     return self.email
+
+
+class UserProfileFeed(models.Model):
+
+  user_profile=models.ForeignKey(UserProfile , on_delete=models.CASCADE)
+  created_at=models.DateTimeField(auto_now_add=True)
+  status=models.CharField(max_length=255)
+
+  def __str__(self):
+
+    return self.user_profile
