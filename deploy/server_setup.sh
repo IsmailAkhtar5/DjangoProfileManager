@@ -22,7 +22,8 @@ git clone $PROJECT_GIT_URL $PROJECT_BASE_PATH/profiles-rest-api
 mkdir -p $VIRTUALENV_BASE_PATH
 python3 -m venv $VIRTUALENV_BASE_PATH/profiles_api
 
-$VIRTUALENV_BASE_PATH/profiles_api/bin/pip install -r $PROJECT_BASE_PATH/profiles-rest-api/requirements.txt
+$VIRTUALENV_BASE_PATH/profiles_api/bin/pip install -r $PROJECT_BASE_PATH/profiles-rest-api/requirement.txt
+
 
 # Run migrations
 cd $PROJECT_BASE_PATH/profiles-rest-api/src
