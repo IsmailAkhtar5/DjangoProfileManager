@@ -81,8 +81,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'db_for_profileproject',
         'HOST':'localhost',
+        'PORT': '3306',
         'USER':'root',
         'PASSWORD':'ismail@2802',
+        'OPTIONS': {
+            'unix_socket': '/var/run/mysqld/mysqld.sock',
+        },
     }
 }
 
